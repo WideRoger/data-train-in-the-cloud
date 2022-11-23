@@ -17,7 +17,7 @@ You will learn how to drive a remote machine in a data center located anywhere i
 
 The resources of the cloud will be at your fingertips, and there are many ways to make use of them:
 -  🌍 **Exploration** is ideal through a **Graphical User Interface (GUI)**, using the **[GCloud web console](https://console.cloud.google.com/)**
--  💻 **Speed and efficiency** can easily be achieved through a **[Terminal](https://en.wikipedia.org/wiki/Terminal_emulator)** 
+-  💻 **Speed and efficiency** can easily be achieved through a **[Terminal](https://en.wikipedia.org/wiki/Terminal_emulator)**
 -  📝 **Automation** is best achieved through **code**
 
 [//]: # ( unit tech stack: gcloud gsutil cloud-storage compute-engine mlflow vertex-ai )
@@ -108,7 +108,7 @@ The main changes concern:
 
 - Pay attention to the `ml_logic.data.get_chunk` _function_ in order to understand how it can switch from local to cloud data loading (the `save_chunk` _function_ works similarly for storage).
 
-- We provide you with the code of the `data_sources.local_disk` _module_ so you can see how the `get_pandas_chunk` and `save_local_chunk` are working. Later on, we will code the equivalent for big query instead of local data storage.
+- We provide you with the code of the `data_sources.local_disk` _module_ so you can see how the `get_pandas_chunk` and `save_local_chunk` are working. Later on, we will code the equivalent for bigquery instead of local data storage.
 
 ✋ Ask for a TA if you need explanations to understand any of the above steps.
 
@@ -414,7 +414,7 @@ Make sure that the _datasets_ that you create use the following data types:
 
   The `head -n 11 train_10k.csv` command, which shows the first 11 lines of any file, can be useful to glance at the top of the CSV (its buddy is the `tail` command).
 
-  Once you have retrieved the list of columns, you need to define the data type that you want to use for each of the columns (search for *big query schema data types*).
+  Once you have retrieved the list of columns, you need to define the data type that you want to use for each of the columns (search for *bigquery schema data types*).
 
   Then you would provide the full schema of the table to the command as an argument: `--schema "key:timestamp,fare_amount:float,..."`
 
@@ -433,7 +433,7 @@ As explained previously, `data.py` acts as a switch.
 
 ✋ Ask for a TA if you need explanations to understand any of the steps above.
 
-**💻 Set the `DATA_SOURCE` variable in the `.env` file to `"big query"`. Complete the `get_bq_chunk` and `save_bq_chunk` functions in the `taxifare.data_sources.big_query` module. Add the required imports in `data.py`**
+**💻 Set the `DATA_SOURCE` variable in the `.env` file to `"bigquery"`. Complete the `get_bq_chunk` and `save_bq_chunk` functions in the `taxifare.data_sources.big_query` module. Add the required imports in `data.py`**
 
 <details>
   <summary markdown='span'><strong>💡 Hint </strong></summary>
@@ -446,7 +446,7 @@ You can now train your model from the cloud using the data chunks retrieved from
 
 ⚙️ **Train your model with data from Big Query**
 
-- Run the following command: `python -m taxifare.interface.main` with `DATA_SOURCE="big query"`.
+- Run the following command: `python -m taxifare.interface.main` with `DATA_SOURCE="bigquery"`.
 - All main routes below should be working fine ✅
 
 ```python
@@ -833,7 +833,7 @@ nano .env
 ```
 
 ``` bash
-DATA_SOURCE=big query
+DATA_SOURCE=bigquery
 LOCAL_DATA_PATH=data
 LOCAL_REGISTRY_PATH=training_outputs
 ```

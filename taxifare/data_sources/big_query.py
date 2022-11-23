@@ -14,11 +14,11 @@ def get_bq_chunk(table: str,
                  dtypes: dict = None,
                  verbose=True) -> pd.DataFrame:
     """
-    return a chunk of a big query dataset table
+    return a chunk of a bigquery dataset table
     format the output dataframe according to the provided data types
     """
     if verbose:
-        print(Fore.MAGENTA + f"Source data from big query {table}: {chunk_size if chunk_size is not None else 'all'} rows (from row {index})" + Style.RESET_ALL)
+        print(Fore.MAGENTA + f"Source data from bigquery {table}: {chunk_size if chunk_size is not None else 'all'} rows (from row {index})" + Style.RESET_ALL)
 
     table = f"{PROJECT}.{DATASET}.{table}"
 
@@ -38,11 +38,11 @@ def get_bq_chunk(table: str,
 
 def save_bq_chunk(table: str, data: pd.DataFrame, is_first: bool):
     """
-    save a chunk of the raw dataset to big query
+    save a chunk of the raw dataset to bigquery
     empty the table beforehands if `is_first` is True
     """
 
-    print(Fore.BLUE + f"\nSave data to big query {table}:" + Style.RESET_ALL)
+    print(Fore.BLUE + f"\nSave data to bigquery {table}:" + Style.RESET_ALL)
 
     table = f"{PROJECT}.{DATASET}.{table}"
 

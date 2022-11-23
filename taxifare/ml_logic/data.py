@@ -56,12 +56,12 @@ def get_chunk(source_name: str,
         dtypes = DTYPES_PROCESSED_OPTIMIZED
     else:
         columns = COLUMN_NAMES_RAW
-        if os.environ.get("DATA_SOURCE") == "big query":
+        if os.environ.get("DATA_SOURCE") == "bigquery":
             dtypes = DTYPES_RAW_OPTIMIZED
         else:
             dtypes = DTYPES_RAW_OPTIMIZED_HEADLESS
 
-    if os.environ.get("DATA_SOURCE") == "big query":
+    if os.environ.get("DATA_SOURCE") == "bigquery":
 
         chunk_df = get_bq_chunk(table=source_name,
                                 index=index,
@@ -88,7 +88,7 @@ def save_chunk(destination_name: str,
     save chunk
     """
 
-    if os.environ.get("DATA_SOURCE") == "big query":
+    if os.environ.get("DATA_SOURCE") == "bigquery":
 
         save_bq_chunk(table=destination_name,
                       data=data,
